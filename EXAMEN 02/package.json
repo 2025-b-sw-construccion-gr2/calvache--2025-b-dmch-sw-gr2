@@ -1,0 +1,28 @@
+{
+  "name": "ci-console-app",
+  "version": "1.0.0",
+  "description": "CLI de ejemplo para examen 02",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "lint": "eslint .",
+    "format:check": "prettier --check .",
+    "format": "prettier --write .",
+    "test": "jest --coverage",
+    "build": "npm run clean && esbuild src/index.js --bundle --platform=node --outfile=dist/app.js",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true});\" && mkdir dist",
+    "start": "node dist/app.js",
+    "dev": "node src/index.js --help",
+    "demo": "node src/index.js --help && node src/index.js sum 2 3 5 && node src/index.js avg 10,20,30 && node src/index.js stats 1 4 9"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.2.5",
+    "esbuild": "^0.20.1"
+  }
+}
